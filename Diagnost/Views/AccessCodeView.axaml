@@ -1,0 +1,54 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:Diagnost.Models"
+             xmlns:views="clr-namespace:Diagnost.Views"
+             x:Class="Diagnost.Views.AccessCodeView"
+             x:DataType="views:AccessCodeView"
+             Background="DeepSkyBlue">
+    
+    <Grid RowDefinitions="Auto, *">
+        <Border Grid.Row="0" Background="DeepSkyBlue" Padding="10">
+            <Grid ColumnDefinitions="Auto, *, Auto, Auto, Auto">
+                <Button Content="⬅ Меню" Click="OnBackClick" Margin="0,0,15,0"/>
+                
+                <TextBlock Grid.Column="1" Text="Управління кодами" 
+                           VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="#333"/>
+
+                <Border Grid.Column="2" Background="DeepSkyBlue" CornerRadius="4" Padding="10,5" Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Новий код: " VerticalAlignment="Center" Foreground="#566573"/>
+                        <TextBlock x:Name="CodeDisplay" Text="---" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <Button Grid.Column="3" Content="➕ Згенерувати" 
+                        Click="OnGenerateClick"
+                        Background="#27AE60" Foreground="White" Margin="0,0,10,0"/>
+                
+                <Button Grid.Column="4" Content="🔄" Click="OnRefreshClick"/>
+            </Grid>
+        </Border>
+
+        <DataGrid Grid.Row="1" x:Name="CodesGrid" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  GridLinesVisibility="All" Background="DeepSkyBlue">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Активний код доступу" 
+                                    x:DataType="models:AccessCodeResponse"
+                                    Binding="{Binding Code}" Width="*" />
+                
+                <DataGridTemplateColumn Header="Дії" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="models:AccessCodeResponse">
+                            <Button Content="🗑 Видалити" 
+                                    Click="OnDeleteCodeClick" 
+                                    Tag="{Binding Code}" 
+                                    Background="#E74C3C" Foreground="White" 
+                                    HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

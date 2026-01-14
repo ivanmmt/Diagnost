@@ -1,0 +1,37 @@
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    x:Class="Diagnost.Views.Test2View"
+    Background="#BC8F8C" >  <Grid>
+        <Border x:Name="ImageBorder"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderThickness="0"
+                Background="Transparent"
+                IsVisible="False">
+            <Image x:Name="DisplayImage"
+                   Stretch="Uniform"
+                   Width="1000"
+                   Height="1000"/>
+        </Border>
+        <TextBlock x:Name="DisplayText"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="72"
+                   Foreground="Black"
+                   Text=""/>
+        
+        <Button x:Name="NextButton"
+                Content="До головного меню"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,50"
+                FontSize="24"
+                IsVisible="False"
+                Click="NextButton_OnClick"/>
+        
+    </Grid>
+</UserControl>

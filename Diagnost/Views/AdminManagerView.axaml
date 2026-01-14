@@ -1,0 +1,62 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:Diagnost.Models"
+             x:Class="Diagnost.Views.AdminManagerView"
+             Background="DeepSkyBlue">
+    <Grid RowDefinitions="Auto, *, Auto" Margin="20">
+        <Grid ColumnDefinitions="Auto, *" Margin="0,0,0,15">
+            <Button x:Name="BackBtn" Content="⬅ Назад" Background="Transparent" Foreground="White"/>
+            <TextBlock Grid.Column="1" Text="Управління викладачами" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <DataGrid x:Name="AdminsGrid" Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  GridLinesVisibility="All"
+                  BorderThickness="1" BorderBrush="#BDC3C7"
+                  x:DataType="models:RegisterResponse"> <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="250"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                
+                <DataGridTemplateColumn Header="Дії" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="models:RegisterResponse">
+                            <Button Content="del" 
+                                    Background="#E74C3C" 
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Click="OnDeleteAdminClick" 
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="2" Background="DeepSkyBlue" CornerRadius="5" Padding="15" Margin="0,15,0,0">
+            <StackPanel Spacing="10">
+                <TextBlock Text="Додати нового адміністратора:" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBox x:Name="NewEmail" 
+                            TextWrapping="NoWrap" 
+                            TextInputOptions.ContentType="Email"
+                            TextInputOptions.ReturnKeyType="Next"
+                            AcceptsReturn="False" 
+                             Width="250"/>
+             
+                    <TextBox x:Name="NewPass" 
+                             Watermark="Пароль" 
+                             PasswordChar="*" 
+                             TextInputOptions.ContentType="Password"                           
+                             HorizontalAlignment="Stretch"
+                             TextWrapping="NoWrap"
+                             AcceptsReturn="False"
+                             Width="200"/>
+             
+                    <Button x:Name="AddBtn" Content="Створити" Background="#27AE60" Foreground="White"/>
+                </StackPanel>
+                <TextBlock x:Name="StatusMsg" FontWeight="Bold" IsVisible="False"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

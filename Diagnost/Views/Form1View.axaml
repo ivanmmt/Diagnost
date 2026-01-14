@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Width="300" Height="600"
+             x:Class="Diagnost.Views.Form1View"
+             Background="DeepSkyBlue"
+             Foreground="Black">
+    
+    <StackPanel Margin="30" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Код Доступу" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="AccessCode"/>
+        </StackPanel>
+
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Ім'я" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="NameBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Призвіще" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="SurnameBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="По-батькові(Не обов'язкове поле)" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="PatronymicBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Вид спорту" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="SportBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Спортивна кваліфікація" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="QualificationBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Група (Не обов'язкове поле)" Margin="0, 0, 0, 5"/>
+            <TextBox x:Name="GroupBox"/>
+        </StackPanel>
+                
+        <StackPanel Margin="0, 0, 0, 10">
+            <TextBlock Text="Пол" Margin="0, 0, 0, 5"/>
+            <ComboBox x:Name="GenderBox">
+                <ComboBoxItem>Жіночий</ComboBoxItem>
+                <ComboBoxItem>Чоловічий</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+                
+        <StackPanel>
+            <Button Content="Підтвердити" Click="Button_OnClick"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:Diagnost.Models"
+             x:Class="Diagnost.Views.StudentResultsView"
+             xmlns:models1="clr-namespace:Diagnost.Models"
+             Background="Transparent">
+    <Grid RowDefinitions="Auto, *">
+        <Border Grid.Row="0" Background="LightGray" Padding="10" BoxShadow="0 2 5 0 #15000000">
+            <Grid ColumnDefinitions="Auto, *, Auto, Auto, Auto">
+                <Button x:Name="BackBtn" Content="⬅ Меню" Margin="0,0,15,0"/>
+                
+                <TextBox x:Name="SearchBox" 
+                         Grid.Column="1" 
+                         Watermark="🔍 Пошук студента..." 
+                         TextInputOptions.ContentType="Search"
+                         TextInputOptions.ReturnKeyType="Search"
+                         Margin="0,0,10,0"/>
+                
+                <ComboBox x:Name="GroupFilter" Grid.Column="2" PlaceholderText="Група" Width="140" Margin="0,0,10,0"/>
+
+                <Button x:Name="RefreshBtn" Grid.Column="3" Content="🔄" Margin="0,0,10,0"/>
+                <TextBlock x:Name="CountLabel" Grid.Column="4" Text="0 записів" VerticalAlignment="Center" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <DataGrid Grid.Row="1" x:Name="ResultsGrid" AutoGenerateColumns="False" 
+                  IsReadOnly="True" GridLinesVisibility="All" x:DataType="models:ResultResponse">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код" Binding="{Binding AccessCode}" Width="85" />
+                <DataGridTextColumn Header="ПІБ" Binding="{Binding StudentFullName}" Width="350"/>
+                <DataGridTextColumn Header="Вид спорту" Binding="{Binding SportType}" Width="100"/>
+                <DataGridTextColumn Header="Спортивна кваліфікація" Binding="{Binding SportQualification}" Width="200"/>
+            
+                <DataGridTextColumn Header="ПЗМР (мс)" Binding="{Binding PZMRLatet, StringFormat=\{0:N2\}}" />
+                <DataGridTextColumn Header="ПЗМР Пом." Binding="{Binding PZMR_ErrorsTotal}" />
+
+                <DataGridTextColumn Header="ПВ2-3 (мс)" Binding="{Binding PV2_3Latet, StringFormat=\{0:N2\}}" />
+                <DataGridTextColumn Header="ПВ2-3 Пом." Binding="{Binding PV2_ErrorsTotal}" />
+            
+                <DataGridTextColumn Header="УФП (мс)" Binding="{Binding UFPLatet, StringFormat=\{0:N1\}}"/>
+                <DataGridTextColumn Header="УФП Пом." Binding="{Binding UFP_ErrorsTotal}"/>
+
+                <DataGridTextColumn Header="Дата" Binding="{Binding SubmittedAt, StringFormat=\{0:dd.MM.yy HH:mm\}}"/>
+
+                <DataGridTemplateColumn Header="Дії">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="models:ResultResponse">
+                            <Button Content="🗑" Click="OnDeleteResultClick" Tag="{Binding Id}" 
+                                    Background="Red" Foreground="White"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

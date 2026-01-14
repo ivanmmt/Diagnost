@@ -1,0 +1,48 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Diagnost.Views.TeacherMenuView"
+             Background="DeepSkyBlue">
+    
+    <Grid RowDefinitions="Auto, *">
+        <Border Background="LightGray" Padding="20" BoxShadow="0 2 4 0 #20000000">
+            <Grid ColumnDefinitions="*, Auto">
+                <StackPanel>
+                    <TextBlock Text="Панель керування" FontSize="26" FontWeight="Bold" Foreground="#2C3E50"/>
+                    <TextBlock Text="Система діагностики" FontSize="14" Foreground="Gray"/>
+                </StackPanel>
+                <Button x:Name="LogoutBtn" Grid.Column="1" Content="Вийти" Background="#E74C3C" Foreground="White"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30">
+            
+            <Button x:Name="BtnStudents" Width="320" Height="70" Background="#3498DB" CornerRadius="8">
+                <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="📊" FontSize="30"/>
+                    <TextBlock Text="Таблиця користувачів" FontSize="20" Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnTeachers" Width="320" Height="70" Background="#9B59B6" CornerRadius="8">
+                <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="👨‍🏫" FontSize="30"/>
+                    <TextBlock Text="Таблиця адміністраторів" FontSize="20" Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="BtnCodes" Width="320" Height="70" Background="#2ECC71" CornerRadius="8">
+                <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="🔑" FontSize="30"/>
+                    <TextBlock Text="Створити AccessCode" FontSize="20" Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            
+            <Button x:Name="Trans" Width="320" Height="70" Background="#2ECC71" CornerRadius="8">
+                <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Перейти до меню тестування" FontSize="20" Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

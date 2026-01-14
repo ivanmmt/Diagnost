@@ -1,0 +1,148 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             x:Class="Diagnost.Views.Form2View"
+             Width="900"
+             Height="600"
+             Background="LightSkyBlue"
+             Foreground="Black">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="*"/> 
+        </Grid.RowDefinitions>
+        
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,0,0">
+            <RadioButton Content="700 ms"
+                         Foreground="Black"
+                        GroupName="LatencyGroup"
+                        IsChecked="True"
+                        Margin="0,0,0,1"/>
+            
+            <RadioButton Content="900 ms"
+                         Foreground="Black"
+                         GroupName="LatencyGroup"
+                         Margin="0,0,0,1"/>
+            
+            <RadioButton Content="1200 ms"
+                         Foreground="Black"
+                         GroupName="LatencyGroup"
+                         Margin="0,0,0,1"/>
+            
+            <RadioButton Content="1500 ms"
+                         Foreground="Black"
+                         GroupName="LatencyGroup"
+                         Margin="0,0,0,1"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+            <Button x:Name="Back"
+                    Content="Перейти назад"
+                    Foreground="Black"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0, 0, 10, 0"
+                    IsVisible="False"
+                    Click="Back_OnClick"/>
+            <Button Content="ПЗМР" Foreground="Black" Click="Button_OnClick" x:Name="First" Margin="0,0,10,0"/>
+            <Button Content="РВ2-3" Foreground="Black" x:Name="Second" Margin="0, 0,10,0"/>
+            <Button Content="УФП НП-обр.св." Foreground="Black" Click="Button_OnClick" x:Name="Third" Margin="0,0,10,0"/>
+            
+        </StackPanel>
+        
+        <Border Grid.Row="1" 
+                Background="#C1E1F4"
+                BorderBrush="#60A0C0"
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="10"
+                Width="500"
+                Height="150"
+                x:Name="IntroBorder"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                IsVisible="True"
+                Margin="0, 0,10,0">
+           <Grid>
+               <TextBlock TextWrapping="Wrap" Foreground="Navy" FontSize="14">
+                   Комп’ютерна система ДІАГНОСТ призначена для визначення індивідуально-типологічних особливостей вищої нервової діяльності та сенсомоторних функцій людини шляхом обробки зорової інформації різного рівня складності. Система може застосовуватися для профорієнтації та професійного відбору, а також для оцінки функціонального стану організму під впливом різних факторів зовнішнього та внутрішнього середовища.
+               </TextBlock>
+           </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" 
+                Background="#C1E1F4"
+                BorderBrush="#60A0C0"
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="10"
+                Width="500"
+                Height="150"
+                x:Name="FirstBorder"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                IsVisible="False"
+                Margin="0, 0,10,0">
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Foreground="Navy" FontSize="14">
+                    При появі на екрані зображень, Вам слід якнайшвидше натиснути та відпустити ліву кнопку миші
+                </TextBlock>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" 
+                Background="#C1E1F4"
+                BorderBrush="#60A0C0"
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="10"
+                Width="500"
+                Height="150"
+                x:Name="SecondBorder"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                IsVisible="False"
+                Margin="0, 0,10,0">
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Foreground="Navy" FontSize="14">
+                    Під час появи на екрані монітора геометричних фігур (квадрата, кола або зафарбованого квадрата) вам слід якомога швидше натиснути та відпустити ліву кнопку миші. Під час появи фігури, що позначає тваринний світ, вам слід якомога швидше натиснути та відпустити праву кнопку миші. Під час появи інших зображень нічого не натискати.
+                </TextBlock>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" 
+                Background="#C1E1F4"
+                BorderBrush="#60A0C0"
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="10"
+                Width="500"
+                Height="150"
+                x:Name="ThirdBorder"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                IsVisible="False"
+                Margin="0, 0,10,0">
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Foreground="Navy" FontSize="14">
+                    Під час появи на екрані монітора геометричних фігур (квадрата, кола або зафарбованого квадрата) вам слід якомога швидше натиснути та відпустити ліву кнопку миші. Під час появи фігури, що позначає тваринний світ, вам слід якомога швидше натиснути та відпустити праву кнопку миші. Під час появи інших фігур нічого не натискати. Залежно від правильних відповідей, час експозиції буде змінюватися.
+                </TextBlock>
+            </Grid>
+        </Border>
+        
+        <Button x:Name="ConfirmButton"
+                Content="Підтвердити"
+                Foreground="Black"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,60,20,0"
+                Width="120"
+                Height="35"
+                IsVisible="False"
+                Click="ConfirmButton_OnClick"/>
+        
+        
+    </Grid>
+</UserControl>
